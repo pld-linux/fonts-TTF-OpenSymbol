@@ -32,6 +32,8 @@ Fonty TrueType OpenSymbol.
 mv ooo*-*-l10n/* .
 
 %install
+rm -rf $RPM_BUILD_ROOT
+
 # Copy fixed OpenSymbol to correct location
 install -d $RPM_BUILD_ROOT%{_fontsdir}/TTF
 cp -a extras/source/truetype/symbol/opens___.ttf $RPM_BUILD_ROOT%{_fontsdir}/TTF
