@@ -3,7 +3,7 @@
 %define		tag			%(echo %{mws} | tr A-Z a-z)-%{milestone}
 %define		milestone	m15
 %define		_tag		%(echo %{tag} | tr - _)
-%define		rel	10
+%define		rel	11
 Summary:	OpenSymbol fonts
 Summary(pl.UTF-8):	Fonty OpenSymbol
 Name:		fonts-TTF-OpenSymbol
