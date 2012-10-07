@@ -10,8 +10,6 @@ URL:		http://cgit.freedesktop.org/libreoffice/core/tree/extras/source/truetype/s
 Source0:	http://cgit.freedesktop.org/libreoffice/core/plain/extras/source/truetype/symbol/opens___.ttf
 # Source0-md5:	ee33af866b0074ef4fcded5a578d0e7f
 Requires(post,postun):	fontpostinst
-BuildRequires:	tar >= 1:1.22
-BuildRequires:	xz
 Obsoletes:	openoffice.org-fonts-OpenSymbol
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
