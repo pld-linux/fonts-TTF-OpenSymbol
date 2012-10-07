@@ -2,14 +2,13 @@ Summary:	LibreOffice dingbats font
 Summary(pl.UTF-8):	Fonty OpenSymbol
 Name:		fonts-TTF-OpenSymbol
 Version:	3.6.1.2
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL/LGPL
 Group:		Fonts
-URL:		http://www.openoffice.org/
-# TODO: find direct link to their VCS for smaller src.rpm
-Source0:	http://download.documentfoundation.org/libreoffice/src/3.6.1/libreoffice-core-%{version}.tar.xz
-# Source0-md5:	3ddcf145b74daa4361e48dafe97e7d21
+URL:		http://cgit.freedesktop.org/libreoffice/core/tree/extras/source/truetype/symbol
+Source0:	http://cgit.freedesktop.org/libreoffice/core/plain/extras/source/truetype/symbol/opens___.ttf
+# Source0-md5:	ee33af866b0074ef4fcded5a578d0e7f
 Requires(post,postun):	fontpostinst
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -26,14 +25,12 @@ Fonty TrueType OpenSymbol.
 
 %prep
 %setup -qcT
-DN=$(basename %{SOURCE0} .tar.xz)
-%{__tar} -Jxf %{SOURCE0} $DN/extras/source/truetype/symbol
-mv $DN/* .
+cp -p %{SOURCE0} .
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_fontsdir}/TTF
-cp -p extras/source/truetype/symbol/opens___.ttf $RPM_BUILD_ROOT%{_fontsdir}/TTF
+cp -p opens___.ttf $RPM_BUILD_ROOT%{_fontsdir}/TTF
 
 %clean
 rm -rf $RPM_BUILD_ROOT
