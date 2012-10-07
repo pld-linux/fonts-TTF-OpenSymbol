@@ -1,42 +1,39 @@
-%define		upd			300
-%define		mws			OOO%{upd}
-%define		tag			%(echo %{mws} | tr A-Z a-z)-%{milestone}
-%define		milestone	m15
-%define		_tag		%(echo %{tag} | tr - _)
-%define		rel	11
-Summary:	OpenSymbol fonts
+Summary:	LibreOffice dingbats font
 Summary(pl.UTF-8):	Fonty OpenSymbol
 Name:		fonts-TTF-OpenSymbol
-Version:	3.0.1.3
-# use rel "1" when version increased
-Release:	%{_tag}.%{rel}
+Version:	3.6.1.2
+Release:	1
 Epoch:		1
 License:	GPL/LGPL
 Group:		Fonts
 URL:		http://www.openoffice.org/
-Source0:	http://download.go-oo.org/%{mws}/%{tag}-l10n.tar.bz2
-# Source0-md5:	02b20bd978e342de45ef84d3232e3f94
+# TODO: find direct link to their VCS for smaller src.rpm
+Source0:	http://download.documentfoundation.org/libreoffice/src/3.6.1/libreoffice-core-%{version}.tar.xz
+# Source0-md5:	3ddcf145b74daa4361e48dafe97e7d21
 Requires(post,postun):	fontpostinst
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 Obsoletes:	openoffice.org-fonts-OpenSymbol
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-OpenSymbol TrueType fonts.
+A dingbats font, OpenSymbol, suitable for use by LibreOffice for
+bullets and mathematical symbols.
 
 %description  -l pl.UTF-8
 Fonty TrueType OpenSymbol.
 
 %prep
-%setup -qc
-mv ooo*-*-l10n/* .
+%setup -qcT
+DN=$(basename %{SOURCE0} .tar.xz)
+%{__tar} -Jxf %{SOURCE0} $DN/extras/source/truetype/symbol
+mv $DN/* .
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
-# Copy fixed OpenSymbol to correct location
 install -d $RPM_BUILD_ROOT%{_fontsdir}/TTF
-cp -a extras/source/truetype/symbol/opens___.ttf $RPM_BUILD_ROOT%{_fontsdir}/TTF
+cp -p extras/source/truetype/symbol/opens___.ttf $RPM_BUILD_ROOT%{_fontsdir}/TTF
 
 %clean
 rm -rf $RPM_BUILD_ROOT
