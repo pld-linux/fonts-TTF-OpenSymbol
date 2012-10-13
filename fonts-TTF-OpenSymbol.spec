@@ -1,14 +1,14 @@
-Summary:	LibreOffice dingbats font
-Summary(pl.UTF-8):	Fonty OpenSymbol
+Summary:	LibreOffice OpenSymbol dingbats font
+Summary(pl.UTF-8):	Font ozdób drukarkich OpenSymbol z LibreOffice
 Name:		fonts-TTF-OpenSymbol
 Version:	3.6.1.2
 Release:	2
 Epoch:		1
 License:	GPL/LGPL
 Group:		Fonts
-URL:		http://cgit.freedesktop.org/libreoffice/core/tree/extras/source/truetype/symbol
 Source0:	http://cgit.freedesktop.org/libreoffice/core/plain/extras/source/truetype/symbol/opens___.ttf
 # Source0-md5:	ee33af866b0074ef4fcded5a578d0e7f
+URL:		http://cgit.freedesktop.org/libreoffice/core/tree/extras/source/truetype/symbol
 Requires(post,postun):	fontpostinst
 Obsoletes:	openoffice.org-fonts-OpenSymbol
 BuildArch:	noarch
@@ -19,7 +19,8 @@ A dingbats font, OpenSymbol, suitable for use by LibreOffice for
 bullets and mathematical symbols.
 
 %description  -l pl.UTF-8
-Fonty TrueType OpenSymbol.
+Font ozdób drukarskich OpenSymbol, przeznaczony do użycia w pakiecie
+biurowym LibreOffice do wypunktowań i symboli matematycznych.
 
 %prep
 %setup -qcT
@@ -41,4 +42,4 @@ fontpostinst TTF
 
 %files
 %defattr(644,root,root,755)
-%{_fontsdir}/TTF/*.ttf
+%{_fontsdir}/TTF/opens___.ttf
