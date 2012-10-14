@@ -2,7 +2,7 @@ Summary:	LibreOffice OpenSymbol dingbats font
 Summary(pl.UTF-8):	Font ozdób drukarkich OpenSymbol z LibreOffice
 Name:		fonts-TTF-OpenSymbol
 Version:	3.6.1.2
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPL/LGPL
 Group:		Fonts
